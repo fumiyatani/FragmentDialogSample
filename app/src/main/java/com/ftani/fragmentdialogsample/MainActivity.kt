@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.databinding.DataBindingUtil
+import com.ftani.fragmentdialogsample.databinding.ActivityMainBinding
 import com.ftani.fragmentdialogsample.dialog.Event
 import com.ftani.fragmentdialogsample.dialog.SampleDialogFragment
 import com.ftani.fragmentdialogsample.dialog.SampleDialogViewModel
@@ -14,9 +16,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        findViewById<Button>(R.id.show_dialog).setOnClickListener {
+        val binding: ActivityMainBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding.showDialog.setOnClickListener {
             SampleDialogFragment.Builder("タイトル")
                 .setMessage("メッセージ")
                 .setPositiveButton("OK")
