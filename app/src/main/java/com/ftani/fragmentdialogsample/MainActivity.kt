@@ -10,7 +10,7 @@ import com.ftani.fragmentdialogsample.dialog.SampleDialogFragment
 import com.ftani.fragmentdialogsample.dialog.SampleDialogViewModel
 
 class MainActivity : AppCompatActivity() {
-    private val dialogViewModel: SampleDialogViewModel by viewModels()
+    private val sampleDialogViewModel: SampleDialogViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
                 .show(supportFragmentManager, SAMPLE_DIALOG_TAG)
         }
 
-        dialogViewModel.state.observe(this) { state ->
+        sampleDialogViewModel.state.observe(this) { state ->
             state.events.forEach { event ->
                 when(event) {
                     Event.POSITIVE -> showToast("PositiveAction!")
